@@ -2,8 +2,12 @@ import somoclu
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as  plt
+import logging
+
 from matplotlib.colors import LinearSegmentedColormap
-import NaiveDE,SpatialDE
+from .util import *
+
+
 
 class SomNode:
     def __init__(self, X, k,homogeneous_codebook=True):
@@ -78,16 +82,38 @@ class SomNode:
         if self.ninfo is None:
             print('generate mtx first')
             return
-        dfm = NaiveDE.stabilize(self.ndf)
-        self.nres = NaiveDE.regress_out(self.ninfo, dfm, 'np.log(total_count)').T
+        dfm = stabilize(self.ndf)
+        self.nres = regress_out(self.ninfo, dfm, 'np.log(total_count)').T
         return self.nres
+    
+
+    
+    def Sparun(self,X, exp_tab, kernel_space=None):
+    #Perform SpatialDE test 
+        if kernel_space == None:
+            l_min, l_max = get_l_limits(X)
+            kernel_space = {
+                'SE': np.logspace(np.log10(l_min), np.log10(l_max), 10),
+                'const': 0
+            }
+
+        logging.info('Performing DE test')
+        results = dyn_de(X, exp_tab, kernel_space)
+        mll_results = get_mll_results(results)
+
+        # Perform significance test
+        mll_results['pval'] = 1 - stats.chi2.cdf(mll_results['LLR'], df=1)
+        mll_results['qval'] = qvalue(mll_results['pval'])
+
+        return mll_results
     
     def run(self):
         if self.nres is None:
             print('norm mtx first')
             self.norm()
         X=self.ninfo[['x','y']].values.astype(float)
-        result = SpatialDE.run(X, self.nres)
+        result = self.Sparun(X, self.nres)
         result.sort_values('LLR',inplace=True,ascending=False)
         number_q = result[result.qval<0.05].shape[0]
         return result, number_q
+

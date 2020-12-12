@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-__version__ = "0.1.4"
+__version__ = "0.1.5"
 
 setup(
     name="somde",
@@ -20,5 +20,5 @@ setup(
     keywords=["spatial transcriptomics", "SpatialDE", "bioinformatics", "self organizing map(SOM)"],
     description="Algorithm for finding gene spatial pattern based on Gaussian process accelerated by SOM",
     license="MIT",
-    url='https://github.com/WhirlFirst/somde'
+#     url='https://github.com/WhirlFirst/somde'
 )

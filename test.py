@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import NaiveDE,SpatialDE
-from somde import SomNode,util
+from somde import SomNode
 
 dataname = '../slideseq_data/Puck_180819_11_'
 df = pd.read_csv(dataname+'count.csv',sep=',',index_col=1)
