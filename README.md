@@ -1,6 +1,5 @@
 
-# SOMDE
-![pypi](https://img.shields.io/pypi/v/somde)
+# SOMDE ![pypi](https://img.shields.io/pypi/v/somde)
 Algorithm for finding gene spatial pattern based on Gaussian process accelerated by SOM
 
 ## Install
@@ -45,6 +44,6 @@ nres = som.norm()
 result, SVnum =som.run()
 ```
 The identification step is mainly based on the adjusted Gaussian Process, which was first proposed by [SOMDE](https://github.com/Teichlab/SpatialDE).
-Visualization result can be found at https://github.com/WhirlFirst/somde/blob/master/slide_seq0819_11_SOM.ipynb 
+Visualization results can be found at https://github.com/WhirlFirst/somde/blob/master/slide_seq0819_11_SOM.ipynb 
 
 
