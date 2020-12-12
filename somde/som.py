@@ -28,7 +28,7 @@ class SomNode:
         self.som.train(X,epochs=10)
         
     def reTrain(self,ep):
-        self.som.train(X,epochs=ep)
+        self.som.train(self.X,epochs=ep)
         
         
     def viewIniCodebook(self,orisize=3,codesize=20):
