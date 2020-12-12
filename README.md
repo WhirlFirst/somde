@@ -1,6 +1,6 @@
 
 # SOMDE
-https://img.shields.io/pypi/v/somde
+![pypi](https://img.shields.io/pypi/v/somde)
 Algorithm for finding gene spatial pattern based on Gaussian process accelerated by SOM
 
 ## Install
