@@ -76,7 +76,7 @@ class SomNode:
         ninfo.total_count = ndf.sum(0)
         self.ndf = ndf
         self.ninfo = ninfo
-        return ndf,ninfo
+        return ndf,ninfo,
     
     def norm(self):
         if self.ninfo is None:

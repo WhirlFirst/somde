@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
-__version__ = "0.1.6"
+__version__ = "0.1.7"
 
-with open("somde/README.md", "r") as fh:
+with open("READMEpypi.md", "r") as fh:
     long_description = fh.read()
 
 setup(
