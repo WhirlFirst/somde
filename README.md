@@ -32,6 +32,7 @@ from somde import SomNode
 som = SomNode(X,20)
 ```
 This step will initialize a SOM and train it. You can use `som.viewIniCodebook()`and`som.view()` to visualize the distribution of untrained and trained SOM nodes. Here is the result:
+
 ![somde1](README_files/r1.png)
 ![somde2](README_files/r2.png)
 
@@ -40,6 +41,7 @@ This step will initialize a SOM and train it. You can use `som.viewIniCodebook()
 ndf,ninfo = som.mtx(df)
 ```
 `mtx`function will generate pesudo gene expression and spatial data site information at reduced resolution. You can visualize the gene expreesion on the condensed map by using `plotgene`.
+
 ![somde3](README_files/r3.png)
 
 ### normalize data and identify SVgenes
@@ -49,8 +51,10 @@ nres = som.norm()
 result, SVnum =som.run()
 ```
 The identification step is mainly based on the adjusted Gaussian Process, which was first proposed by [SpatialDE](https://github.com/Teichlab/SpatialDE). Here are the Top SVgenes given by SOMDE on both the original and SOM view:
+
 ![somde4](README_files/r4.png)
 ![somde5](README_files/r5.png)
+
 More visualization results can be found at https://github.com/WhirlFirst/somde/blob/master/slide_seq0819_11_SOM.ipynb 
 
 
